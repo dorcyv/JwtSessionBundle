@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+        bind:
+            $jwtSecret: '%env(JWT_SECRET)%'
+
+    Dorcyv\JwtSessionBundle\:
+        resource: '../../'
+
+    Dorcyv\JwtSessionBundle\Session\JwtSessionHandler:
+        public: true
