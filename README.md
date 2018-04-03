@@ -14,3 +14,12 @@ The JWT Token cannot be changed, but it can be read. This implementation save th
 Because of this do not store in the JWT Token sensible data like passwords.
 
 ## Installation
+Run `composer require dorcyv/jwt-session-bundle`
+
+Set the session handler in the `config/packages/framework.yaml` file:
+```yaml
+framework:
+    session:
+        handler_id: Dorcyv\JwtSessionBundle\Session\JwtSessionHandler
+```
+That's it !
