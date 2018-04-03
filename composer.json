@@ -1,5 +1,5 @@
 {
-    "name": "dorcyv/JwtSessionBundle",
+    "name": "dorcyv/jwt-session-bundle",
     "type": "symfony-bundle",
     "description": "Provide a client side session with JWT tokens",
     "license": "MIT",
