@@ -43,12 +43,13 @@ class JwtWrapper
      * JwtWrapper constructor.
      *
      * @param string $jwtSecret
+     * @param string $issuer
      */
-    public function __construct(string $jwtSecret)
+    public function __construct(string $jwtSecret, string $issuer)
     {
         $this->jwtSecret = $jwtSecret;
         $this->signer = new Sha256();
-        $this->issuer = '';
+        $this->issuer = $issuer;
     }
 
     /**

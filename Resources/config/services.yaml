@@ -5,6 +5,7 @@ services:
         public: false
         bind:
             $jwtSecret: '%env(JWT_SECRET)%'
+            $issuer: '%env(JWT_ISSUER)%'
 
     Dorcyv\JwtSessionBundle\:
         resource: '../../'
