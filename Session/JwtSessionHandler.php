@@ -92,12 +92,12 @@ class JwtSessionHandler extends AbstractSessionHandler
     {
         $cookie = $this->cookieManager->getCookie($this->cookieName);
         if ($cookie === null) {
-            return $this->jwtWrapper->createToken('');
+            return $this->jwtWrapper->createToken();
         }
 
         $token = $this->jwtWrapper->parse($cookie->getValue());
         if (!$this->jwtWrapper->isValid($token)) {
-            return $this->jwtWrapper->createToken('');
+            return $this->jwtWrapper->createToken();
         }
 
         return $token;

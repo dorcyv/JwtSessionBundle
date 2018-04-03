@@ -53,15 +53,12 @@ class JwtWrapper
     }
 
     /**
-     * @param string $subject
-     *
      * @return Token
      */
-    public function createToken(string $subject): Token
+    public function createToken(): Token
     {
         $builder = new Builder();
         $builder->setIssuer($this->issuer);
-        $builder->setSubject($subject);
         $this->sign($builder);
 
         return $builder->getToken();
