@@ -1,0 +1,23 @@
+{
+    "name": "dorcyv/JwtSessionBundle",
+    "type": "symfony-bundle",
+    "description": "Provide a client side session with JWT tokens",
+    "license": "MIT",
+    "keywords": ["symfony", "session", "jwt"],
+    "authors": [
+        {
+            "name": "Valérian Dorcy",
+            "email": "valerian.dorcy@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "lcobucci/jwt":"^3.2",
+        "symfony/http-foundation": "^4.0",
+        "symfony/event-dispatcher": "^4.0",
+        "doctrine/collections": "^1.5"
+    },
+    "autoload": {
+        "psr-4": { "Dorcyv\\JwtSessionBundle\\": "" }
+    }
+}
