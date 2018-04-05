@@ -70,6 +70,7 @@ class JwtSessionHandler extends AbstractSessionHandler
     /**
      * {@inheritDoc}
      *
+     * @throws \OutOfBoundsException
      * @throws \InvalidArgumentException
      * @throws \BadMethodCallException
      */
@@ -91,12 +92,13 @@ class JwtSessionHandler extends AbstractSessionHandler
     private function getToken(): Token
     {
         $cookie = $this->cookieManager->getCookie($this->cookieName);
-        if ($cookie === null) {
+        if ($cookie === null || $cookie->getValue() === null) {
             return $this->jwtWrapper->createToken();
         }
 
         $token = $this->jwtWrapper->parse($cookie->getValue());
-        if (!$this->jwtWrapper->isValid($token)) {
+        if ($token === null || !$this->jwtWrapper->isValid($token)) {
+
             return $this->jwtWrapper->createToken();
         }
 
@@ -132,9 +134,13 @@ class JwtSessionHandler extends AbstractSessionHandler
 
     /**
      * {@inheritDoc}
+     *
+     * @throws \InvalidArgumentException
      */
     protected function doDestroy($sessionId): bool
     {
+        $this->cookieManager->addCookie(new Cookie($this->cookieName));
+
         return true;
     }
 }

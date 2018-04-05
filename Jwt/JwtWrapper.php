@@ -85,9 +85,9 @@ class JwtWrapper
     /**
      * @param string $token
      *
-     * @return Token
+     * @return Token|null
      */
-    public function parse(string $token): Token
+    public function parse(string $token): ?Token
     {
         try {
             $parser = new Parser();
