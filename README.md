@@ -1,6 +1,7 @@
 # JwtSessionBundle
 
-JwtSessionBundle is a PHP session replacement. Instead of use FileSystem, just use Json Web Token
+JwtSessionBundle is a PHP session replacement. Instead of use FileSystem, just use Json Web Token.
+Compatible with Symfony 3.4 and 4
 
 ## Motivation
 The default PHP Session does not work in different servers using round robin or other algorithms. This occurs because PHP Session are saved by default in the file system.
